@@ -1,17 +1,24 @@
 /* 基本スタイル */
 :root {
-    --primary-color: #77aaff; /* 明るい青系 */
-    --secondary-color: #ff88cc; /* 明るいピンク系 */
-    --accent-color: #f0e68c; /* 淡い黄色系 */
-    --text-color: #333;
-    --light-text-color: #fff;
-    --background-color: #f9f9f9;
-    --card-background: #fff;
-    --border-color: #ddd;
-    --header-bg: #2c3e50; /* 少し濃いめの青系 */
-    --footer-bg: #1a252f;
-    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-heading: 'Georgia', serif;
+    /* かわいい色合いパレット */
+    --primary-color: #ffb6c1; /* ライトピンク */
+    --secondary-color: #add8e6; /* ライトブルー */
+    --accent-color: #ffd700; /* ゴールド */
+    --highlight-color: #ff69b4; /* ホットピンク (強めのアクセント) */
+
+    --text-color: #5d5d5d; /* ダークグレー */
+    --heading-color: #c71585; /* ミディアムバイオレットレッド (見出し用) */
+    --light-text-color: #ffffff;
+    --background-color: #fff0f5; /* ラベンダーブラッシュ (ごく薄いピンク) */
+    --card-background: #ffffff;
+    --border-color: #ffe4e1; /* ミスティローズ (薄いピンクのボーダー) */
+
+    --header-bg: #ff8fab; /* 少し濃いめのピンク (ヘッダー背景) */
+    --footer-bg: #f5deb3; /* ウィート (フッター背景) */
+
+    --font-main: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif; /* 丸みのあるフォント */
+    --font-heading: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif; /* 少し遊び心のあるフォント (好みに応じて変更) */
+    /* もしくは、より可愛らしい手書き風フォントをWebフォントで読み込む */
 }
 
 body {
@@ -24,12 +31,12 @@ body {
 }
 
 .wrapper {
-    overflow-x: hidden; /* 横スクロールバー防止 */
+    overflow-x: hidden;
 }
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1100px; /* 少し幅を狭めて親密感を出す */
     margin: auto;
     padding: 0 20px;
     box-sizing: border-box;
@@ -37,20 +44,21 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    color: var(--header-bg);
+    color: var(--heading-color);
+    font-weight: normal; /* 可愛らしさを出すため、太すぎないように */
 }
 
 h2 {
-    font-size: 2.2em;
+    font-size: 2.0em; /* 少し小さめに */
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--primary-color);
-    display: inline-block; /* 中央寄せとborder-bottomのため */
+    border-bottom: 2px dashed var(--primary-color); /* 点線ボーダーで可愛らしさUP */
+    display: inline-block;
 }
-section > .container > h2, /* 直接のh2に適用 */
-section h2 { /* セクション内のh2すべてに適用（必要に応じて調整） */
-    display: block; /* blockに戻して中央寄せをtext-alignで */
+section > .container > h2,
+section h2 {
+    display: block;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -60,16 +68,18 @@ section h2 { /* セクション内のh2すべてに適用（必要に応じて�
 a {
     color: var(--primary-color);
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 a:hover {
-    color: var(--secondary-color);
-    text-decoration: underline;
+    color: var(--highlight-color);
+    text-decoration: none; /* ホバー時は下線なしの方がスッキリ見える場合も */
 }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: 8px; /* 画像の角を丸くする */
 }
 
 .text-center {
@@ -79,53 +89,56 @@ img {
 /* ボタン共通スタイル */
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px; /* 少し大きめ・丸みを意識 */
+    border-radius: 25px; /* 角をより丸く */
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
     border: none;
     font-size: 1em;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--light-text-color);
 }
 .btn-primary:hover {
-    background-color: darken(var(--primary-color), 10%);
-    transform: translateY(-2px);
+    background-color: lighten(var(--primary-color), 5%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     color: var(--light-text-color);
-    text-decoration: none;
 }
 .btn-secondary {
     background-color: var(--secondary-color);
-    color: var(--light-text-color);
+    color: var(--text-color); /* 背景が明るいので濃い文字色 */
 }
 .btn-secondary:hover {
-    background-color: darken(var(--secondary-color), 10%);
-    transform: translateY(-2px);
-    color: var(--light-text-color);
-    text-decoration: none;
+    background-color: lighten(var(--secondary-color), 5%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    color: var(--text-color);
 }
 .btn-small {
-    padding: 8px 15px;
+    padding: 8px 18px;
     font-size: 0.9em;
+    border-radius: 18px;
 }
 .btn-large {
-    padding: 15px 30px;
+    padding: 15px 35px;
     font-size: 1.2em;
+    border-radius: 30px;
 }
 .btn-listen, .btn-mv {
     background-color: var(--accent-color);
     color: var(--text-color);
     margin-right: 10px;
+    border-radius: 20px;
 }
 .btn-listen:hover, .btn-mv:hover {
-    background-color: darken(var(--accent-color), 10%);
+    background-color: darken(var(--accent-color), 5%);
     color: var(--text-color);
-    text-decoration: none;
 }
 
 
@@ -133,11 +146,11 @@ img {
 header {
     background: var(--header-bg);
     color: var(--light-text-color);
-    padding: 15px 0;
+    padding: 10px 0; /* 少し高さを抑える */
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(200,100,150,0.1); /* ピンク系の影 */
 }
 .header-flex {
     display: flex;
@@ -145,10 +158,11 @@ header {
     align-items: center;
 }
 .logo-area #logo-text {
-    font-size: 1.8em;
+    font-size: 2.0em; /* ロゴは少し大きめに */
     font-weight: bold;
-    font-family: var(--font-heading);
+    font-family: var(--font-heading); /* ロゴにも可愛いフォント */
     color: var(--light-text-color);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 .logo-area a:hover {
     text-decoration: none;
@@ -161,18 +175,19 @@ header nav ul {
     display: flex;
 }
 header nav li {
-    margin-left: 25px;
-    position: relative; /* ドロップダウン用 */
+    margin-left: 20px;
+    position: relative;
 }
 header nav a {
     color: var(--light-text-color);
-    text-transform: uppercase;
-    font-size: 0.95em;
+    text-transform: none; /* 大文字ではなく通常で可愛らしく */
+    font-size: 1.0em; /* 少し大きめ */
     padding: 5px 0;
     transition: color 0.3s ease;
+    font-family: var(--font-main); /* 通常フォント */
 }
 header nav a:hover, header nav li.active a {
-    color: var(--primary-color);
+    color: var(--accent-color); /* ホバーはゴールドに */
     text-decoration: none;
 }
 
@@ -180,70 +195,79 @@ header nav a:hover, header nav li.active a {
 .dropdown .dropdown-content {
     display: none;
     position: absolute;
-    background-color: var(--header-bg);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: lighten(var(--header-bg), 5%); /* ヘッダーより少し明るく */
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
     z-index: 1;
     top: 100%;
     left: 0;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 8px 8px; /* 角丸 */
+    padding: 5px 0; /* 上下パディング */
 }
 .dropdown .dropdown-content a {
     color: var(--light-text-color);
-    padding: 12px 16px;
+    padding: 10px 15px; /* パディング調整 */
     text-decoration: none;
     display: block;
-    text-transform: none; /* 通常のナビと区別 */
-    font-size: 0.9em;
+    font-size: 0.95em;
 }
 .dropdown .dropdown-content a:hover {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
+    background-color: var(--accent-color);
+    color: var(--text-color); /* ゴールド背景なので文字は濃く */
 }
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
 .social-media-icons a {
-    margin-left: 10px;
+    margin-left: 8px;
 }
-.social-media-icons img {
-    width: 24px;
-    height: 24px;
+.social-media-icons img { /* 実際のアイコンフォントやSVGアイコンに置き換えることを推奨 */
+    width: 22px;
+    height: 22px;
     vertical-align: middle;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: brightness(1.2); /* 少し明るく */
 }
 .social-media-icons a:hover img {
     opacity: 1;
+    transform: scale(1.1);
 }
 
 /* ヒーローセクション */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x700?text=Hero+Background') no-repeat center center/cover;
+    /* グラデーションで可愛らしさを */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: var(--light-text-color);
-    padding: 80px 0;
+    padding: 60px 0;
     text-align: center;
+    border-bottom-left-radius: 50px; /* 左下を丸く */
+    border-bottom-right-radius: 50px;/* 右下を丸く */
+    margin-bottom: 30px; /* 区切り */
 }
 .hero h2#hero-title {
-    font-size: 3.5em;
-    margin-bottom: 20px;
+    font-size: 3.0em;
+    margin-bottom: 15px;
     color: var(--light-text-color);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    border-bottom: none; /* Override general h2 style */
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.25);
+    border-bottom: none;
+    letter-spacing: 1px; /* 文字間隔 */
 }
 .hero .subtitle {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-    line-height: 1.5;
+    font-size: 1.3em;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 .hero-image-container {
-    margin: 30px auto;
-    max-width: 800px; /* キービジュアルの最大幅 */
+    margin: 25px auto;
+    max-width: 700px;
 }
 .hero-image {
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border: 5px solid var(--light-text-color); /* 白い枠線 */
 }
 .cta-buttons .btn {
     margin: 10px;
@@ -251,11 +275,11 @@ header nav a:hover, header nav li.active a {
 
 /* メインコンテンツセクション */
 main section {
-    padding: 60px 0;
+    padding: 50px 0;
     background-color: var(--background-color);
 }
-main section:nth-child(even) { /* セクションごとに背景色を変える場合 */
-    background-color: var(--card-background);
+main section:nth-child(even) {
+    background-color: var(--card-background); /* 白背景でスッキリと */
 }
 
 /* ニュース */
@@ -265,43 +289,49 @@ main section:nth-child(even) { /* セクションごとに背景色を変える�
 }
 #news-list li {
     background: var(--card-background);
-    padding: 20px;
-    margin-bottom: 15px;
-    border-left: 5px solid var(--primary-color);
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    border-left: 6px solid var(--secondary-color); /* 水色のライン */
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    transition: transform 0.2s ease;
+}
+#news-list li:hover {
+    transform: translateX(5px);
 }
 #news-list .news-date {
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--primary-color); /* ピンクの日付 */
     margin-right: 15px;
     flex-shrink: 0;
 }
 #news-list .news-category {
-    background-color: var(--secondary-color);
+    background-color: var(--highlight-color); /* ホットピンクのカテゴリ */
     color: var(--light-text-color);
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 0.8em;
+    padding: 4px 10px;
+    border-radius: 15px; /* 丸いカテゴリタグ */
+    font-size: 0.75em;
     margin-right: 10px;
     text-transform: uppercase;
     flex-shrink: 0;
+    font-weight: bold;
 }
-#news-list .news-category.release { background-color: var(--primary-color); }
-#news-list .news-category.live { background-color: #27ae60; } /* 緑系 */
-#news-list .news-category.media { background-color: #f39c12; } /* オレンジ系 */
-#news-list .news-category.goods { background-color: #8e44ad; } /* 紫系 */
+/* カテゴリごとの色分けは維持しつつ、ベースカラーを調整 */
+#news-list .news-category.release { background-color: var(--accent-color); color: var(--text-color); }
+#news-list .news-category.live { background-color: #90ee90; color: var(--text-color); } /* ライトグリーン */
+#news-list .news-category.media { background-color: #dda0dd; color: var(--text-color); } /* プラム */
+#news-list .news-category.goods { background-color: #f08080; color: var(--light-text-color); } /* ライトコーラル */
+
 #news-list a {
     color: var(--text-color);
     font-weight: 500;
     flex-grow: 1;
 }
 #news-list a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
+    color: var(--highlight-color);
 }
 #load-news-button {
     margin-top: 20px;
@@ -315,114 +345,128 @@ main section:nth-child(even) { /* セクションごとに背景色を変える�
 /* メンバー紹介 */
 .member-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* カード幅少し小さめ */
+    gap: 25px;
 }
 .member-card {
     background: var(--card-background);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 15px; /* 角丸を強調 */
+    box-shadow: 0 5px 18px rgba(255,182,193,0.3); /* ピンク系の影 */
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* 画像と情報を横並びにする場合 */
-    flex-direction: column; /* デフォルトは縦 */
+    display: flex;
+    flex-direction: column;
+    text-align: center; /* 全体的に中央寄せ */
 }
 .member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-8px) rotate(1deg); /* 少し傾けるアニメーション */
+    box-shadow: 0 10px 25px rgba(255,105,180,0.3); /* ホットピンク系の濃い影 */
 }
 .member-card img {
-    width: 100%; /* カード幅に合わせる */
-    height: 280px; /* 高さを固定 */
-    object-fit: cover; /* アスペクト比を保ってトリミング */
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--primary-color); /* 画像下にライン */
 }
 .member-info {
     padding: 20px;
 }
 .member-card h3 {
     margin-top: 0;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-    font-size: 1.6em;
+    margin-bottom: 8px;
+    color: var(--highlight-color); /* ホットピンクの見出し */
+    font-size: 1.5em;
 }
 .member-role {
     font-weight: bold;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     margin-bottom: 10px;
     font-size: 0.9em;
 }
 .member-color {
-    font-size: 0.9em;
+    font-size: 0.85em;
     margin-bottom: 10px;
     font-style: italic;
+    color: var(--secondary-color); /* 水色の担当カラー */
 }
 .member-catchphrase {
-    font-size: 0.95em;
+    font-size: 0.9em;
     margin-bottom: 15px;
-    border-left: 3px solid var(--accent-color);
-    padding-left: 10px;
+    border-left: none; /* 左の線はなしに */
+    border-top: 1px dashed var(--border-color);
+    border-bottom: 1px dashed var(--border-color);
+    padding: 10px 5px;
+    background-color: #fffafa; /* スノー (ほぼ白) */
+    border-radius: 5px;
 }
 .member-details {
     list-style: none;
     padding: 0;
-    font-size: 0.9em;
+    font-size: 0.85em;
     margin-bottom: 15px;
+    text-align: left; /* リストは左寄せ */
+    display: inline-block; /* 中央寄せの親の中で左寄せにするため */
 }
 .member-details li {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 .member-details li:before {
-    content: "●";
-    color: var(--primary-color);
+    content: "🎀"; /* リボン絵文字 */
+    /* content: "✨"; 星でも可愛い */
     margin-right: 8px;
-    font-size: 0.8em;
+    font-size: 1em; /* 絵文字サイズ調整 */
 }
 
 /* ディスコグラフィー */
 .disco-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 1列 */
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 25px;
 }
 .disco-item {
-    background: var(--card-background);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    background: linear-gradient(to right, #fff5f7, #f8f8ff); /* ごく薄いピンクからゴーストホワイトへ */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(173,216,230,0.4); /* ライトブルー系の影 */
     display: flex;
     padding: 25px;
+    align-items: center; /* 中央揃え */
 }
 .disco-item img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 10px; /* CDジャケット風に角丸 */
     margin-right: 25px;
     flex-shrink: 0;
+    border: 3px solid var(--secondary-color);
 }
 .disco-info {
     flex-grow: 1;
 }
 .disco-info h3 {
     margin-top: 0;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-    font-size: 1.5em;
+    margin-bottom: 8px;
+    color: var(--heading-color);
+    font-size: 1.4em;
 }
 .release-date {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 10px;
+    font-size: 0.85em;
+    color: #777;
+    margin-bottom: 12px;
 }
 .disco-info p {
     margin-bottom: 10px;
+    font-size: 0.95em;
 }
 .track-list {
     padding-left: 20px;
     font-size: 0.9em;
     margin-bottom: 15px;
+    list-style-type: "🎶 "; /* 音符の絵文字 */
 }
 .track-list li {
-    margin-bottom: 3px;
+    margin-bottom: 4px;
+    color: var(--text-color);
 }
 .disco-links .btn {
     margin-top: 10px;
@@ -431,49 +475,52 @@ main section:nth-child(even) { /* セクションごとに背景色を変える�
 /* スケジュール */
 .schedule-list {
     display: grid;
-    gap: 20px;
+    gap: 18px;
 }
 .schedule-item {
     background-color: var(--card-background);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     padding: 20px;
     display: flex;
     align-items: flex-start;
+    border: 1px solid var(--border-color);
 }
 .schedule-date {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color); /* ライトブルー */
     color: var(--light-text-color);
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 8px;
     text-align: center;
     margin-right: 20px;
-    min-width: 70px; /* 日付エリアの幅を確保 */
+    min-width: 75px;
     flex-shrink: 0;
+    font-family: var(--font-main);
 }
 .schedule-date .month {
     display: block;
-    font-size: 0.9em;
+    font-size: 0.85em;
     text-transform: uppercase;
+    opacity: 0.9;
 }
 .schedule-date .day {
     display: block;
-    font-size: 1.8em;
+    font-size: 1.7em;
     font-weight: bold;
 }
 .schedule-details h3 {
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.3em;
-    color: var(--header-bg);
+    margin-bottom: 8px;
+    font-size: 1.25em;
+    color: var(--primary-color); /* ピンクの見出し */
 }
 .schedule-details p {
     margin: 5px 0;
-    font-size: 0.95em;
+    font-size: 0.9em;
 }
 .schedule-details .label {
     font-weight: bold;
-    color: var(--secondary-color);
+    color: var(--highlight-color); /* ホットピンクのラベル */
 }
 .schedule-details .btn {
     margin-top: 10px;
@@ -482,42 +529,45 @@ main section:nth-child(even) { /* セクションごとに背景色を変える�
 /* ギャラリー */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* 画像小さめ */
+    gap: 12px;
 }
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    border: 3px solid var(--light-text-color); /* 白枠 */
 }
 .gallery-item img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); /* イージング変更 */
 }
 .gallery-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(2deg); /* 少し回転も加える */
 }
 .gallery-caption {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(255,105,180,0.7); /* ホットピンク半透明 */
     color: var(--light-text-color);
-    padding: 8px;
+    padding: 10px;
     font-size: 0.9em;
     text-align: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(100%); /* 下から出てくるアニメーション */
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .gallery-item:hover .gallery-caption {
     opacity: 1;
+    transform: translateY(0);
 }
 
-/* Lightbox (基本的なスタイル - 実際のライブラリとは異なります) */
+/* Lightbox (基本的なスタイル) */
 #lightbox {
     display: none;
     position: fixed;
@@ -526,7 +576,7 @@ main section:nth-child(even) { /* セクションごとに背景色を変える�
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.85);
+    background-color: rgba(255,192,203,0.8); /* ピンク系の半透明背景 */
     justify-content: center;
     align-items: center;
 }
@@ -534,96 +584,114 @@ main section:nth-child(even) { /* セクションごとに背景色を変える�
     display: flex;
 }
 #lightbox img {
-    max-width: 90%;
-    max-height: 80%;
-    box-shadow: 0 0 25px rgba(0,0,0,0.5);
-    border-radius: 5px;
+    max-width: 85%;
+    max-height: 75%;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    border: 5px solid var(--light-text-color);
 }
 #lightbox-caption {
-    color: var(--light-text-color);
-    margin-top: 10px;
+    color: var(--heading-color); /* 見出し色 */
+    background-color: rgba(255,255,255,0.8);
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
     text-align: center;
     font-size: 1.1em;
+    font-family: var(--font-main);
 }
 .lightbox-close {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    color: var(--light-text-color);
-    font-size: 30px;
+    top: 25px;
+    right: 35px;
+    color: var(--heading-color);
+    font-size: 35px;
     font-weight: bold;
     cursor: pointer;
+    text-shadow: 1px 1px 2px var(--light-text-color);
 }
 
 
 /* ファンクラブ */
 .fanclub-section {
-    background-color: var(--accent-color); /* 目立たせるための背景色 */
+    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color)); /* 水色からゴールドへ */
     padding: 60px 0;
-    color: var(--text-color); /* 背景が明るいので濃い文字色 */
+    color: var(--text-color);
+    border-radius: 30px; /* セクションの角も丸く */
+    margin: 30px 0;
 }
 .fanclub-section h2 {
-    color: var(--header-bg); /* 通常の見出し色 */
+    color: var(--light-text-color); /* 背景が明るいので白文字 */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    border-bottom-color: var(--light-text-color);
 }
 .fanclub-content {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
+    background-color: rgba(255,255,255,0.7); /* 半透明の白背景 */
+    padding: 30px;
+    border-radius: 20px;
 }
 .fanclub-text {
     flex: 1;
 }
 .fanclub-text h3 {
-    margin-top: 30px;
-    margin-bottom: 15px;
-    color: var(--primary-color);
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: var(--highlight-color);
+    font-size: 1.4em;
 }
 .fanclub-text ul {
     list-style: none;
     padding-left: 0;
 }
 .fanclub-text ul li {
-    margin-bottom: 8px;
-    padding-left: 20px;
+    margin-bottom: 10px;
+    padding-left: 25px;
     position: relative;
+    font-size: 0.95em;
 }
 .fanclub-text ul li::before {
-    content: "🌟"; /* 星の絵文字など */
+    content: "💖"; /* ハートの絵文字 */
     position: absolute;
     left: 0;
-    color: var(--secondary-color);
+    font-size: 1.1em;
 }
 .fanclub-image {
     flex: 1;
-    max-width: 450px;
+    max-width: 400px;
 }
 .fanclub-image img {
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    border: 4px solid var(--light-text-color);
 }
 
 /* フッター */
 footer {
-    background: var(--footer-bg);
-    color: #aaa; /* 少し明るいグレー */
-    padding: 40px 0 20px;
+    background: var(--footer-bg); /* ウィート */
+    color: darken(var(--footer-bg), 40%); /* 背景色より暗いブラウン系 */
+    padding: 30px 0 15px;
     text-align: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
 }
 .footer-nav ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
 }
 .footer-nav li {
     display: inline-block;
-    margin: 0 15px;
+    margin: 0 12px;
 }
 .footer-nav a {
-    color: #bbb;
+    color: darken(var(--footer-bg), 30%);
     font-size: 0.9em;
 }
 .footer-nav a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* ピンクにホバー */
 }
 .footer-social a {
     margin: 0 8px;
@@ -631,40 +699,30 @@ footer {
 .footer-social img {
     width: 20px;
     height: 20px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.2s ease;
 }
 .footer-social a:hover img {
     opacity: 1;
+    transform: scale(1.1);
 }
 .copyright {
-    margin-top: 20px;
-    font-size: 0.85em;
+    margin-top: 15px;
+    font-size: 0.8em;
 }
 
-/* レスポンシブ対応 */
+/* レスポンシブ対応 (一部調整) */
 @media(max-width: 992px) {
     .container {
         width: 95%;
     }
-    .member-card {
-        /* flex-direction: column; 画像が上、情報が下 */
-    }
     .disco-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .disco-item img {
-        margin-right: 0;
-        margin-bottom: 20px;
+        align-items: flex-start; /* 上寄せに */
     }
     .fanclub-content {
         flex-direction: column;
         text-align: center;
-    }
-    .fanclub-image {
-        margin-top: 30px;
+        padding: 20px;
     }
 }
 
@@ -682,66 +740,36 @@ footer {
     header nav li {
         margin: 8px 0;
     }
-    .dropdown .dropdown-content {
-        position: static; /* 通常のフローに戻す */
-        background-color: transparent;
-        box-shadow: none;
-        text-align: center;
-    }
-    .dropdown .dropdown-content a {
-        padding: 8px 0;
-        color: #ccc; /* 少し暗めの色 */
-    }
     .social-media-icons {
         margin-top: 15px;
     }
 
     .hero h2#hero-title {
-        font-size: 2.5em;
+        font-size: 2.3em;
     }
     .hero .subtitle {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
-
-    #news-list li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    #news-list .news-date, #news-list .news-category {
-        margin-bottom: 5px;
-    }
-
-    .schedule-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .schedule-date {
-        margin-right: 0;
-        margin-bottom: 10px;
-        align-self: flex-start; /* 左寄せ */
+    .member-card:hover {
+        transform: translateY(-5px) rotate(0deg); /* スマホでは傾きなし */
     }
 }
 
 @media(max-width: 480px) {
     .hero h2#hero-title {
-        font-size: 2em;
+        font-size: 1.8em;
     }
     .hero .subtitle {
         font-size: 1em;
     }
-    .cta-buttons .btn {
-        display: block;
-        width: 80%;
-        margin: 10px auto;
+    .btn {
+        padding: 10px 20px; /* スマホではボタン少し小さめ */
     }
-    .member-grid {
-        grid-template-columns: 1fr; /* 1列表示 */
+    .member-card img {
+        height: 220px;
     }
     .disco-item img {
-        width: 150px;
-        height: 150px;
-    }
-    .gallery-grid {
-        grid-template-columns: 1fr; /* 1列表示 */
+        width: 120px;
+        height: 120px;
     }
 }
