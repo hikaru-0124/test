@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlight Symphony - 公式サイト</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesomeなどのアイコンフォントを読み込む場合はここに追加 -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="container header-flex">
+                <div class="logo-area">
+                    <a href="#home">
+                        <!-- ロゴ画像があればここに配置 -->
+                        <!-- <img src="images/logo.png" alt="Starlight Symphony Logo" id="logo"> -->
+                        <span id="logo-text">Starlight Symphony</span>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">ホーム</a></li>
+                        <li><a href="#news">ニュース</a></li>
+                        <li class="dropdown">
+                            <a href="#members" class="dropbtn">メンバー</a>
+                            <div class="dropdown-content">
+                                <a href="#member-hikari">ヒカリ</a>
+                                <a href="#member-aoi">アオイ</a>
+                                <a href="#member-yuna">ユナ</a>
+                            </div>
+                        </li>
+                        <li><a href="#discography">ディスコグラフィー</a></li>
+                        <li><a href="#schedule">スケジュール</a></li>
+                        <li><a href="#gallery">ギャラリー</a></li>
+                        <li><a href="#fanclub">ファンクラブ</a></li>
+                    </ul>
+                </nav>
+                <div class="social-media-icons">
+                    <a href="#" title="X (旧Twitter)"><img src="https://via.placeholder.com/30x30?text=X" alt="X"></a>
+                    <a href="#" title="Instagram"><img src="https://via.placeholder.com/30x30?text=IG" alt="Instagram"></a>
+                    <a href="#" title="YouTube"><img src="https://via.placeholder.com/30x30?text=YT" alt="YouTube"></a>
+                </div>
+            </div>
+        </header>
+
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <h2 id="hero-title">夜空に瞬く、希望のハーモニー</h2>
+                <p class="subtitle">Starlight Symphony (スターライト・シンフォニー) へようこそ！<br>私たちは夢と感動を届ける3人組アイドルグループです。</p>
+                <div class="hero-image-container">
+                    <img src="https://via.placeholder.com/1000x400?text=Starlight+Symphony+Key+Visual" alt="グループキービジュアル" class="hero-image">
+                </div>
+                <div class="cta-buttons">
+                    <a href="#discography" class="btn btn-primary">最新リリースをチェック</a>
+                    <a href="#schedule" class="btn btn-secondary">ライブ情報はこちら</a>
+                </div>
+            </div>
+        </section>
+
+        <main class="container">
+            <section id="news" aria-labelledby="news-heading">
+                <h2 id="news-heading">最新ニュース</h2>
+                <ul id="news-list">
+                    <!-- ニュースはJavaScriptで動的に追加 or 静的に記述 -->
+                    <li>
+                        <span class="news-date">2024.07.25</span>
+                        <span class="news-category release">リリース</span>
+                        <a href="news_detail_1.html">新曲「Cosmic Love」配信開始＆MVプレミア公開決定！</a>
+                    </li>
+                    <li>
+                        <span class="news-date">2024.07.20</span>
+                        <span class="news-category live">ライブ</span>
+                        <a href="news_detail_2.html">夏ツアー「Starlight Summer Tour 2024」チケット一般発売開始！</a>
+                    </li>
+                    <li>
+                        <span class="news-date">2024.07.15</span>
+                        <span class="news-category media">メディア</span>
+                        <a href="news_detail_3.html">音楽番組「SOUND SPARK」出演決定！</a>
+                    </li>
+                    <li>
+                        <span class="news-date">2024.07.10</span>
+                        <span class="news-category goods">グッズ</span>
+                        <a href="news_detail_4.html">「Starlight Summer Tour 2024」オフィシャルグッズラインナップ公開！</a>
+                    </li>
+                </ul>
+                <div class="text-center">
+                    <button id="load-news-button">もっと見る</button>
+                </div>
+            </section>
+
+            <section id="members" aria-labelledby="members-heading">
+                <h2 id="members-heading">メンバー紹介</h2>
+                <div class="member-grid">
+                    <article id="member-hikari" class="member-card">
+                        <img src="https://via.placeholder.com/250x250?text=Hikari+Profile" alt="ヒカリ">
+                        <div class="member-info">
+                            <h3>ヒカリ (Hikari)</h3>
+                            <p class="member-role">リーダー / リードボーカル</p>
+                            <p class="member-color">担当カラー: サンシャインイエロー</p>
+                            <p class="member-catchphrase">「みんなの心を照らす一番星！ヒカリです！」</p>
+                            <ul class="member-details">
+                                <li>誕生日: 3月15日</li>
+                                <li>血液型: O型</li>
+                                <li>趣味: カフェ巡り、作詞</li>
+                                <li>特技: 誰とでもすぐに仲良くなれる</li>
+                            </ul>
+                            <a href="member_hikari_detail.html" class="btn btn-small">もっと詳しく</a>
+                        </div>
+                    </article>
+                    <article id="member-aoi" class="member-card">
+                        <img src="https://via.placeholder.com/250x250?text=Aoi+Profile" alt="アオイ">
+                        <div class="member-info">
+                            <h3>アオイ (Aoi)</h3>
+                            <p class="member-role">メインボーカル / ダンス</p>
+                            <p class="member-color">担当カラー: オーシャンブルー</p>
+                            <p class="member-catchphrase">「クールな視線に秘めた情熱。アオイの歌、聴いてください。」</p>
+                            <ul class="member-details">
+                                <li>誕生日: 7月7日</li>
+                                <li>血液型: A型</li>
+                                <li>趣味: 読書、絵を描くこと</li>
+                                <li>特技: ピアノ、絶対音感</li>
+                            </ul>
+                            <a href="member_aoi_detail.html" class="btn btn-small">もっと詳しく</a>
+                        </div>
+                    </article>
+                    <article id="member-yuna" class="member-card">
+                        <img src="https://via.placeholder.com/250x250?text=Yuna+Profile" alt="ユナ">
+                        <div class="member-info">
+                            <h3>ユナ (Yuna)</h3>
+                            <p class="member-role">メインダンサー / ラップ</p>
+                            <p class="member-color">担当カラー: ドリームピンク</p>
+                            <p class="member-catchphrase">「夢見るパワーは無限大！ユナと一緒に踊ろう！」</p>
+                            <ul class="member-details">
+                                <li>誕生日: 11月23日</li>
+                                <li>血液型: B型</li>
+                                <li>趣味: ダンス動画鑑賞、お菓子作り</li>
+                                <li>特技: アクロバット、振り付け</li>
+                            </ul>
+                            <a href="member_yuna_detail.html" class="btn btn-small">もっと詳しく</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="discography" aria-labelledby="discography-heading">
+                <h2 id="discography-heading">ディスコグラフィー</h2>
+                <div class="disco-grid">
+                    <article class="disco-item">
+                        <img src="https://via.placeholder.com/200x200?text=Album+Future+Glow" alt="Future Glow">
+                        <div class="disco-info">
+                            <h3>1st Full Album: 「Future Glow」</h3>
+                            <p class="release-date">リリース日: 2024.08.21</p>
+                            <p>タイプ: 初回限定盤A (CD+Blu-ray), 初回限定盤B (CD+フォトブック), 通常盤 (CD)</p>
+                            <p>Starlight Symphonyの未来を照らす、多彩な楽曲を収録した待望のフルアルバム。</p>
+                            <h4>収録曲 (通常盤):</h4>
+                            <ol class="track-list">
+                                <li>Starlight Overture</li>
+                                <li>Cosmic Love</li>
+                                <li>Twinkle Dream (Album Ver.)</li>
+                                <li>約束の場所へ</li>
+                                <li>Shooting Star</li>
+                                <li>Interlude ~Galaxy~</li>
+                                <li>ミライコンパス</li>
+                                <li>ヒカリ (Solo)</li>
+                                <li>Blue Moon Serenade (Aoi Solo)</li>
+                                <li>Dream Hopper (Yuna Solo)</li>
+                                <li>Our Symphony</li>
+                                <li>Future Glow</li>
+                            </ol>
+                            <div class="disco-links">
+                                <a href="#" class="btn btn-listen">試聴する</a>
+                                <a href="#" class="btn btn-mv">MVを見る</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="disco-item">
+                        <img src="https://via.placeholder.com/200x200?text=Single+Twinkle+Dream" alt="Twinkle Dream">
+                        <div class="disco-info">
+                            <h3>1st Single: 「Twinkle Dream」</h3>
+                            <p class="release-date">リリース日: 2023.10.20</p>
+                            <p>タイプ: 通常盤 (CD), デジタル配信</p>
+                            <p>夢に向かって走り出す、希望に満ちたデビューシングル。</p>
+                            <h4>収録曲:</h4>
+                            <ol class="track-list">
+                                <li>Twinkle Dream</li>
+                                <li>星屑のメッセージ</li>
+                                <li>Twinkle Dream (Instrumental)</li>
+                                <li>星屑のメッセージ (Instrumental)</li>
+                            </ol>
+                            <div class="disco-links">
+                                <a href="#" class="btn btn-listen">試聴する</a>
+                                <a href="#" class="btn btn-mv">MVを見る</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="schedule" aria-labelledby="schedule-heading">
+                <h2 id="schedule-heading">スケジュール</h2>
+                <div class="schedule-list">
+                    <article class="schedule-item">
+                        <div class="schedule-date">
+                            <span class="month">AUG</span>
+                            <span class="day">10</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h3>「Starlight Summer Tour 2024」東京公演</h3>
+                            <p><span class="label">会場:</span> Zepp DiverCity (TOKYO)</p>
+                            <p><span class="label">時間:</span> 開場 17:00 / 開演 18:00</p>
+                            <a href="schedule_detail_1.html" class="btn btn-small">詳細・チケット</a>
+                        </div>
+                    </article>
+                    <article class="schedule-item">
+                        <div class="schedule-date">
+                            <span class="month">AUG</span>
+                            <span class="day">17</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h3>「Starlight Summer Tour 2024」大阪公演</h3>
+                            <p><span class="label">会場:</span> なんばHatch</p>
+                            <p><span class="label">時間:</span> 開場 17:00 / 開演 18:00</p>
+                            <a href="schedule_detail_2.html" class="btn btn-small">詳細・チケット</a>
+                        </div>
+                    </article>
+                    <article class="schedule-item">
+                        <div class="schedule-date">
+                            <span class="month">SEP</span>
+                            <span class="day">05</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h3>アルバム「Future Glow」リリース記念イベント</h3>
+                            <p><span class="label">会場:</span> タワーレコード渋谷店 B1F CUTUP STUDIO</p>
+                            <p><span class="label">時間:</span> 19:00 START</p>
+                            <a href="schedule_detail_3.html" class="btn btn-small">詳細</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="gallery" aria-labelledby="gallery-heading">
+                <h2 id="gallery-heading">ギャラリー</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <a href="https://via.placeholder.com/800x600?text=Gallery+Image+1" data-lightbox="gallery" data-title="「Cosmic Love」MV撮影オフショット">
+                            <img src="https://via.placeholder.com/300x200?text=Gallery+1" alt="ギャラリー画像1">
+                            <div class="gallery-caption">MVオフショット</div>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="https://via.placeholder.com/800x600?text=Gallery+Image+2" data-lightbox="gallery" data-title="ライブパフォーマンス中のStarlight Symphony">
+                            <img src="https://via.placeholder.com/300x200?text=Gallery+2" alt="ギャラリー画像2">
+                            <div class="gallery-caption">ライブショット</div>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="https://via.placeholder.com/800x600?text=Gallery+Image+3" data-lightbox="gallery" data-title="雑誌撮影風景">
+                            <img src="https://via.placeholder.com/300x200?text=Gallery+3" alt="ギャラリー画像3">
+                            <div class="gallery-caption">雑誌撮影</div>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="https://via.placeholder.com/800x600?text=Gallery+Image+4" data-lightbox="gallery" data-title="ファンミーティングでの集合写真">
+                            <img src="https://via.placeholder.com/300x200?text=Gallery+4" alt="ギャラリー画像4">
+                            <div class="gallery-caption">ファンミ写真</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="gallery_all.html" class="btn btn-secondary">もっと見る</a>
+                </div>
+            </section>
+
+            <section id="fanclub" class="fanclub-section" aria-labelledby="fanclub-heading">
+                <div class="container fanclub-content">
+                    <div class="fanclub-text">
+                        <h2 id="fanclub-heading">Official Fanclub "STARGAZER"</h2>
+                        <p>Starlight Symphonyを最も近くで応援できる公式ファンクラブ「STARGAZER」<br>会員限定の特典やコンテンツが盛りだくさん！</p>
+                        <h3>会員特典</h3>
+                        <ul>
+                            <li>会員証の発行</li>
+                            <li>会報誌の発行（年2回）</li>
+                            <li>チケット先行予約</li>
+                            <li>会員限定イベントへの参加</li>
+                            <li>会員限定グッズの販売</li>
+                            <li>メンバーからのバースデーメッセージ</li>
+                            <li>限定ブログ・動画コンテンツの閲覧</li>
+                        </ul>
+                        <a href="fanclub_join.html" class="btn btn-primary btn-large">今すぐ入会する！</a>
+                    </div>
+                    <div class="fanclub-image">
+                        <img src="https://via.placeholder.com/400x300?text=Fanclub+STARGAZER" alt="ファンクラブイメージ">
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="privacy.html">プライバシーポリシー</a></li>
+                        <li><a href="terms.html">利用規約</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                        <li><a href="company.html">運営会社</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="#" title="X (旧Twitter)"><img src="https://via.placeholder.com/24x24?text=X" alt="X"></a>
+                    <a href="#" title="Instagram"><img src="https://via.placeholder.com/24x24?text=IG" alt="Instagram"></a>
+                    <a href="#" title="YouTube"><img src="https://via.placeholder.com/24x24?text=YT" alt="YouTube"></a>
+                </div>
+                <p class="copyright">© 2024 Starlight Symphony Entertainment. / Project Starlight. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <!-- ギャラリー用のLightbox JSなどを読み込む場合はここに追加 -->
+    <!-- <script src="path/to/lightbox.min.js"></script> -->
+</body>
+</html>

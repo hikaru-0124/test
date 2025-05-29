@@ -1,0 +1,747 @@
+/* 基本スタイル */
+:root {
+    --primary-color: #77aaff; /* 明るい青系 */
+    --secondary-color: #ff88cc; /* 明るいピンク系 */
+    --accent-color: #f0e68c; /* 淡い黄色系 */
+    --text-color: #333;
+    --light-text-color: #fff;
+    --background-color: #f9f9f9;
+    --card-background: #fff;
+    --border-color: #ddd;
+    --header-bg: #2c3e50; /* 少し濃いめの青系 */
+    --footer-bg: #1a252f;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: 'Georgia', serif;
+}
+
+body {
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.wrapper {
+    overflow-x: hidden; /* 横スクロールバー防止 */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--header-bg);
+}
+
+h2 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block; /* 中央寄せとborder-bottomのため */
+}
+section > .container > h2, /* 直接のh2に適用 */
+section h2 { /* セクション内のh2すべてに適用（必要に応じて調整） */
+    display: block; /* blockに戻して中央寄せをtext-alignで */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ボタン共通スタイル */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+    text-align: center;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+.btn-primary:hover {
+    background-color: darken(var(--primary-color), 10%);
+    transform: translateY(-2px);
+    color: var(--light-text-color);
+    text-decoration: none;
+}
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+}
+.btn-secondary:hover {
+    background-color: darken(var(--secondary-color), 10%);
+    transform: translateY(-2px);
+    color: var(--light-text-color);
+    text-decoration: none;
+}
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.2em;
+}
+.btn-listen, .btn-mv {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    margin-right: 10px;
+}
+.btn-listen:hover, .btn-mv:hover {
+    background-color: darken(var(--accent-color), 10%);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+
+/* ヘッダー */
+header {
+    background: var(--header-bg);
+    color: var(--light-text-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-area #logo-text {
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    color: var(--light-text-color);
+}
+.logo-area a:hover {
+    text-decoration: none;
+}
+
+header nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+header nav li {
+    margin-left: 25px;
+    position: relative; /* ドロップダウン用 */
+}
+header nav a {
+    color: var(--light-text-color);
+    text-transform: uppercase;
+    font-size: 0.95em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+header nav a:hover, header nav li.active a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* ドロップダウンメニュー */
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--header-bg);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    border-radius: 0 0 5px 5px;
+}
+.dropdown .dropdown-content a {
+    color: var(--light-text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-transform: none; /* 通常のナビと区別 */
+    font-size: 0.9em;
+}
+.dropdown .dropdown-content a:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.social-media-icons a {
+    margin-left: 10px;
+}
+.social-media-icons img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.social-media-icons a:hover img {
+    opacity: 1;
+}
+
+/* ヒーローセクション */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x700?text=Hero+Background') no-repeat center center/cover;
+    color: var(--light-text-color);
+    padding: 80px 0;
+    text-align: center;
+}
+.hero h2#hero-title {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--light-text-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    border-bottom: none; /* Override general h2 style */
+}
+.hero .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+.hero-image-container {
+    margin: 30px auto;
+    max-width: 800px; /* キービジュアルの最大幅 */
+}
+.hero-image {
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.cta-buttons .btn {
+    margin: 10px;
+}
+
+/* メインコンテンツセクション */
+main section {
+    padding: 60px 0;
+    background-color: var(--background-color);
+}
+main section:nth-child(even) { /* セクションごとに背景色を変える場合 */
+    background-color: var(--card-background);
+}
+
+/* ニュース */
+#news-list {
+    list-style: none;
+    padding: 0;
+}
+#news-list li {
+    background: var(--card-background);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#news-list .news-date {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+#news-list .news-category {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-right: 10px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+#news-list .news-category.release { background-color: var(--primary-color); }
+#news-list .news-category.live { background-color: #27ae60; } /* 緑系 */
+#news-list .news-category.media { background-color: #f39c12; } /* オレンジ系 */
+#news-list .news-category.goods { background-color: #8e44ad; } /* 紫系 */
+#news-list a {
+    color: var(--text-color);
+    font-weight: 500;
+    flex-grow: 1;
+}
+#news-list a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+#load-news-button {
+    margin-top: 20px;
+    background-color: var(--text-color);
+}
+#load-news-button:hover {
+    background-color: lighten(var(--text-color), 20%);
+}
+
+
+/* メンバー紹介 */
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.member-card {
+    background: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* 画像と情報を横並びにする場合 */
+    flex-direction: column; /* デフォルトは縦 */
+}
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.member-card img {
+    width: 100%; /* カード幅に合わせる */
+    height: 280px; /* 高さを固定 */
+    object-fit: cover; /* アスペクト比を保ってトリミング */
+}
+.member-info {
+    padding: 20px;
+}
+.member-card h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    font-size: 1.6em;
+}
+.member-role {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+.member-color {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+.member-catchphrase {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+}
+.member-details {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+.member-details li {
+    margin-bottom: 5px;
+}
+.member-details li:before {
+    content: "●";
+    color: var(--primary-color);
+    margin-right: 8px;
+    font-size: 0.8em;
+}
+
+/* ディスコグラフィー */
+.disco-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1列 */
+    gap: 30px;
+}
+.disco-item {
+    background: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    padding: 25px;
+}
+.disco-item img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 25px;
+    flex-shrink: 0;
+}
+.disco-info {
+    flex-grow: 1;
+}
+.disco-info h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+.release-date {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+.disco-info p {
+    margin-bottom: 10px;
+}
+.track-list {
+    padding-left: 20px;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+.track-list li {
+    margin-bottom: 3px;
+}
+.disco-links .btn {
+    margin-top: 10px;
+}
+
+/* スケジュール */
+.schedule-list {
+    display: grid;
+    gap: 20px;
+}
+.schedule-item {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+.schedule-date {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 20px;
+    min-width: 70px; /* 日付エリアの幅を確保 */
+    flex-shrink: 0;
+}
+.schedule-date .month {
+    display: block;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+.schedule-date .day {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+.schedule-details h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    color: var(--header-bg);
+}
+.schedule-details p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+.schedule-details .label {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+.schedule-details .btn {
+    margin-top: 10px;
+}
+
+/* ギャラリー */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    color: var(--light-text-color);
+    padding: 8px;
+    font-size: 0.9em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+}
+
+/* Lightbox (基本的なスタイル - 実際のライブラリとは異なります) */
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+}
+#lightbox.active {
+    display: flex;
+}
+#lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+#lightbox-caption {
+    color: var(--light-text-color);
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.1em;
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--light-text-color);
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* ファンクラブ */
+.fanclub-section {
+    background-color: var(--accent-color); /* 目立たせるための背景色 */
+    padding: 60px 0;
+    color: var(--text-color); /* 背景が明るいので濃い文字色 */
+}
+.fanclub-section h2 {
+    color: var(--header-bg); /* 通常の見出し色 */
+}
+.fanclub-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.fanclub-text {
+    flex: 1;
+}
+.fanclub-text h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+.fanclub-text ul {
+    list-style: none;
+    padding-left: 0;
+}
+.fanclub-text ul li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+.fanclub-text ul li::before {
+    content: "🌟"; /* 星の絵文字など */
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+}
+.fanclub-image {
+    flex: 1;
+    max-width: 450px;
+}
+.fanclub-image img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* フッター */
+footer {
+    background: var(--footer-bg);
+    color: #aaa; /* 少し明るいグレー */
+    padding: 40px 0 20px;
+    text-align: center;
+}
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+.footer-nav li {
+    display: inline-block;
+    margin: 0 15px;
+}
+.footer-nav a {
+    color: #bbb;
+    font-size: 0.9em;
+}
+.footer-nav a:hover {
+    color: var(--primary-color);
+}
+.footer-social a {
+    margin: 0 8px;
+}
+.footer-social img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+.footer-social a:hover img {
+    opacity: 1;
+}
+.copyright {
+    margin-top: 20px;
+    font-size: 0.85em;
+}
+
+/* レスポンシブ対応 */
+@media(max-width: 992px) {
+    .container {
+        width: 95%;
+    }
+    .member-card {
+        /* flex-direction: column; 画像が上、情報が下 */
+    }
+    .disco-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .disco-item img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .fanclub-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .fanclub-image {
+        margin-top: 30px;
+    }
+}
+
+@media(max-width: 768px){
+    .header-flex {
+        flex-direction: column;
+    }
+    header nav {
+        margin-top: 15px;
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav li {
+        margin: 8px 0;
+    }
+    .dropdown .dropdown-content {
+        position: static; /* 通常のフローに戻す */
+        background-color: transparent;
+        box-shadow: none;
+        text-align: center;
+    }
+    .dropdown .dropdown-content a {
+        padding: 8px 0;
+        color: #ccc; /* 少し暗めの色 */
+    }
+    .social-media-icons {
+        margin-top: 15px;
+    }
+
+    .hero h2#hero-title {
+        font-size: 2.5em;
+    }
+    .hero .subtitle {
+        font-size: 1.2em;
+    }
+
+    #news-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #news-list .news-date, #news-list .news-category {
+        margin-bottom: 5px;
+    }
+
+    .schedule-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .schedule-date {
+        margin-right: 0;
+        margin-bottom: 10px;
+        align-self: flex-start; /* 左寄せ */
+    }
+}
+
+@media(max-width: 480px) {
+    .hero h2#hero-title {
+        font-size: 2em;
+    }
+    .hero .subtitle {
+        font-size: 1em;
+    }
+    .cta-buttons .btn {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+    }
+    .member-grid {
+        grid-template-columns: 1fr; /* 1列表示 */
+    }
+    .disco-item img {
+        width: 150px;
+        height: 150px;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1列表示 */
+    }
+}
