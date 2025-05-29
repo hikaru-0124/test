@@ -773,3 +773,102 @@ footer {
         height: 120px;
     }
 }
+/* ヘッダー */
+header {
+    /* ...既存のスタイル... */
+    transition: padding 0.3s ease, background-color 0.3s ease; /* スムーズな変化のため */
+}
+
+header.scrolled {
+    padding: 5px 0; /* スクロール後のヘッダーの高さ */
+    background-color: rgba(255, 143, 171, 0.95); /* スクロール後の背景色 (少し透明度を下げるなど) */
+    box-shadow: 0 2px 8px rgba(200,100,150,0.15);
+}
+header.scrolled #logo-text {
+    font-size: 1.8em; /* スクロール後にロゴを少し小さくする */
+}
+/* スクロールアニメーションの基本設定 */
+.animate-on-scroll {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
+}
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: none !important; /* !important で初期状態を上書き */
+}
+
+/* 個別のアニメーションクラス */
+.fade-in {
+    /* opacity: 0; は .animate-on-scroll で設定済み */
+}
+.slide-in-bottom {
+    transform: translateY(50px);
+}
+.slide-in-left {
+    transform: translateX(-50px);
+}
+.slide-in-right {
+    transform: translateX(50px);
+}
+.zoom-in {
+    transform: scale(0.9);
+}
+/* 必要に応じて他のアニメーションも追加 */
+/* タイピングエフェクト */
+.typing-effect {
+    display: inline-block; /* または block */
+    overflow: hidden; /* カーソルがはみ出ないように */
+    /* border-right: .15em solid var(--primary-color); /* タイプライターカーソル風 */
+    /* white-space: nowrap; /* 一行に保つ場合 */
+    /* letter-spacing: .1em; */
+    /* animation: typing-blink-caret .75s step-end infinite; */
+}
+
+/* タイプライターカーソルの点滅アニメーション (お好みで) */
+/*
+@keyframes typing-blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color); }
+}
+.typing-effect.typing-done {
+    border-right-color: transparent;
+    animation: none;
+}
+*/
+/* マウス追従キラキラエフェクト */
+.sparkle-effect {
+    position: absolute; /* 親要素(hero)がrelativeであること */
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color); /* ゴールド */
+    border-radius: 50%;
+    pointer-events: none; /* キラキラがマウスイベントを邪魔しないように */
+    opacity: 0;
+    animation: sparkle-animation 1s ease-out forwards;
+    transform-origin: center center;
+}
+
+@keyframes sparkle-animation {
+    0% {
+        opacity: 1;
+        transform: scale(0.5) translate(-50%, -50%);
+    }
+    50% {
+        opacity: 0.8;
+        /* transform: scale(1.2) translate(-50%, -50%); */
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5) translate(-50%, -150%) rotate(90deg); /* 上に飛んで消える感じ */
+    }
+}
+
+/* 色のバリエーションを出す場合 */
+.sparkle-effect:nth-child(3n+1) {
+    background-color: var(--primary-color);
+}
+.sparkle-effect:nth-child(3n+2) {
+    background-color: var(--secondary-color);
+}
